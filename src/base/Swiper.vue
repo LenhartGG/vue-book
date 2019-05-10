@@ -1,13 +1,21 @@
 <template>
-  <swiper :options="swiperOption">
-    <swiper-slide v-for="(slide, key) in swiperSlides" :key="key">
-      <img :src="slide" alt="">
-    </swiper-slide>
-    <div class="swiper-pagination" slot="pagination"></div>
-  </swiper>
+  <div style="height:200px">
+    <swiper :options="swiperOption">
+      <swiper-slide v-for="(slide, key) in swiperSlides" :key="key">
+        <img :src="slide" alt="">
+      </swiper-slide>
+      <div class="swiper-pagination" slot="pagination"></div>
+    </swiper>
+  </div>
 </template>
 
 <script>
+  // mount with component
+  // require styles
+  import 'swiper/dist/css/swiper.css'
+
+  import { swiper, swiperSlide } from 'vue-awesome-swiper'
+
   export default {
     name: 'carousel',
     props:['swiperSlides'],
@@ -15,7 +23,7 @@
       return {
         swiperOption: {
           autoplay: true,
-          speed: 400,
+          speed: 100,
           loop:true,
           grabCursor: true,
           setWrapperSize: true,
@@ -30,6 +38,10 @@
         },
       } 
     },
+    components: {
+      swiper,
+      swiperSlide
+    }
   }
 </script>
 <style lang="less" scoped>

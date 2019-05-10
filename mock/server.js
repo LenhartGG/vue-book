@@ -1,6 +1,7 @@
 let http = require('http');
 let fs = require('fs');
 let url = require('url');
+let portNumber = 3000;
 
 // 获取轮播图 /sliders
 let sliders = require('./sliders.js');
@@ -125,4 +126,6 @@ http.createServer((req, res) => {
         return
     }
 
-}).listen(3000);
+}).listen(portNumber);
+console.log("Server is running at http://localhost:" + portNumber);
+
